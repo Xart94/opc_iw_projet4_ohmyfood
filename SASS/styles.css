@@ -48,6 +48,22 @@ h4 {
   font-weight: 500;
   border-radius: 25px;
   padding: 13px 16px;
+  cursor: pointer;
+}
+
+.btn--secondary {
+  position: absolute;
+  width: 80px;
+  right: 5%;
+  top: 5%;
+  border: none;
+  background-color: #99e2d0;
+  color: #008766;
+  font-size: 14px;
+  padding: 7px 9px;
+  border-radius: 2px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
 }
 
 .navbar__logo {
@@ -104,6 +120,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 25px;
+  margin-top: 2em;
 }
 .fonctionnement__container--steps {
   position: relative;
@@ -142,6 +159,10 @@ main {
   display: flex;
   flex-direction: column;
   gap: 18px;
+  margin-top: 2em;
+}
+.restaurants__container__card {
+  position: relative;
 }
 .restaurants__container__card .card__img img {
   object-fit: cover;
