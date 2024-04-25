@@ -91,10 +91,14 @@ h4 {
   margin-top: 10px;
 }
 
+main {
+  padding: 0px 20px;
+}
+
 .fonctionnement {
   display: flex;
   flex-direction: column;
-  padding: 0px 20px;
+  margin-top: 6em;
 }
 .fonctionnement__container {
   display: flex;
@@ -131,10 +135,57 @@ h4 {
   font-weight: 500;
 }
 
-@media (min-width: 768px) {
-  body {
-    background-color: green;
-  }
+.restaurants {
+  margin-top: 6em;
+}
+.restaurants__container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.restaurants__container__card .card__img img {
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  width: 100%;
+  height: 240px;
+}
+.restaurants__container__card .card__article {
+  display: flex;
+  justify-content: space-between;
+  padding: 13px;
+}
+.restaurants__container__card .card__article--txt p {
+  font-size: 17px;
+  font-weight: 300;
+  margin-top: 3px;
+}
+.restaurants__container__card .card__article img {
+  width: 22px;
+  margin-right: 10px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+footer {
+  padding: 25px;
+  background-color: #353535;
+  margin-top: 6em;
+}
+footer h1 {
+  color: white;
+  margin-bottom: 20px;
+}
+footer .footer__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+footer .footer__menu a {
+  color: white;
+  display: flex;
+  gap: 12px;
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=styles.css.map */
