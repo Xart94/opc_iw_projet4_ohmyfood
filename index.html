@@ -3,8 +3,75 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/styles.css" />
+    <link rel="stylesheet" href="./SASS/styles.css" />
     <title>OhMyFood</title>
   </head>
-  <body></body>
+  <body>
+    <div class="main-container">
+      <!-- HEADER -->
+      <header>
+        <!-- navbar -->
+        <div class="navbar">
+          <div class="navbar__logo">
+            <img src="./assets/images/logo/ohmyfood.png" alt="ohmyfood_logo" />
+          </div>
+          <div class="navbar__location">
+            <img src="./assets/icon/Pin.svg" alt="pin_location_ icon" />
+            <p>Paris, Belleville</p>
+          </div>
+        </div>
+        <!-- end navbar -->
+        <div class="banner">
+          <h2>
+            Réservez le menu qui <br />
+            vous convient
+          </h2>
+          <p>
+            Découvrez des restaurants d'exception,<br />
+            sélectionnés par nos soins.
+          </p>
+          <button class="btn--main">Explorer nos restaurants</button>
+        </div>
+      </header>
+      <!-- end HEADER -->
+
+      <!-- MAIN -->
+      <main>
+        <section class="fonctionnement">
+          <h2>Fonctionnement</h2>
+          <div class="fonctionnement__container">
+            <!-- Step 1 -->
+            <div class="fonctionnement__container--steps">
+              <div class="step__num">1</div>
+              <img
+                src="./assets/icon/mobile-screen-button.svg"
+                alt="mobile screen icon"
+              />
+              <p>Choisissez un restaurant</p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="fonctionnement__container--steps">
+              <div class="step__num">2</div>
+              <img src="./assets/icon/list-ul.svg" alt="list icon" />
+              <p>Composez votre menu</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="fonctionnement__container--steps">
+              <div class="step__num">3</div>
+              <img src="./assets/icon/store.svg" alt="store icon" />
+              <p>Dégustez au restaurant</p>
+            </div>
+          </div>
+        </section>
+        <section class="restaurants"></section>
+      </main>
+      <!-- end MAIN -->
+
+      <!-- FOOTER -->
+      <footer></footer>
+      <!-- end FOOTER -->
+    </div>
+  </body>
 </html>
