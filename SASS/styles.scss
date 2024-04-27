@@ -66,10 +66,11 @@ h4 {
   font-weight: 500;
 }
 
-// button
+// BUTTONS
 .btn--main {
   @include gradient;
   @include boxShadow;
+  position: relative;
   border: none;
   color: white;
   font-family: "Roboto", sans-serif;
@@ -78,6 +79,27 @@ h4 {
   border-radius: 25px;
   padding: 13px 16px;
   cursor: pointer;
+  transition: box-shadow 500ms 100ms ease-out;
+  z-index: 1;
+  &:hover {
+    @include boxShadowHoverState;
+    &::after {
+      opacity: 0.15;
+    }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 25px;
+    background-color: white;
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+    z-index: -1;
+  }
 }
 
 .btn--secondary {
@@ -86,13 +108,45 @@ h4 {
   right: 5%;
   top: 5%;
   border: none;
-  background-color: $light_green;
   color: $green;
   font-size: 14px;
   padding: 7px 9px;
   border-radius: 2px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   cursor: pointer;
+  z-index: 0;
+  transition: transform 0.4s ease-in-out;
+  &::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: $light_green;
+    left: 0;
+    top: 0;
+    border-radius: 2px;
+  }
+  &::before {
+    content: "";
+    background-color: #31b493;
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    filter: blur(8px);
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 2px;
+    opacity: 0;
+  }
+  &:hover {
+    transform: scale(1.1);
+    &::before {
+      opacity: 1;
+    }
+  }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // MOBILE (from 0px to 768px) //
@@ -226,11 +280,69 @@ main {
           }
         }
 
-        img {
-          width: 22px;
+        .heart-btn {
           margin-right: 10px;
-          cursor: pointer;
           align-self: flex-start;
+          border: none;
+          background-color: rgba(255, 255, 255, 0);
+          svg {
+            cursor: pointer;
+            path {
+              fill: transparent;
+              stroke: rgb(0, 0, 0);
+              animation: emptyHeartIcon 0.3s ease-in-out forwards;
+            }
+          }
+          &:hover svg path {
+            fill: url(#my-gradient) $purple;
+            stroke: transparent;
+            animation: fillHeartIcon 0.3s ease-in-out forwards;
+          }
+        }
+
+        @keyframes fillHeartIcon {
+          0% {
+            fill: transparent;
+            stroke: black;
+          }
+          25% {
+            stroke: rgba(0, 0, 0, 0.75);
+          }
+          50% {
+            stroke: rgba(0, 0, 0, 0.5);
+          }
+          75% {
+            stroke: rgba(0, 0, 0, 0.25);
+          }
+          85% {
+            stroke: rgba(0, 0, 0, 0.1);
+          }
+          100% {
+            fill: url(#my-gradient) $purple;
+            stroke: transparent;
+          }
+        }
+        @keyframes emptyHeartIcon {
+          0% {
+            fill: url(#my-gradient) $purple;
+            stroke: transparent;
+          }
+          25% {
+            stroke: rgba(0, 0, 0, 0.1);
+          }
+          50% {
+            stroke: rgba(0, 0, 0, 0.25);
+          }
+          75% {
+            stroke: rgba(0, 0, 0, 0.5);
+          }
+          85% {
+            stroke: rgba(0, 0, 0, 0.75);
+          }
+          100% {
+            fill: transparent;
+            stroke: black;
+          }
         }
       }
     }
@@ -260,7 +372,7 @@ footer {
   }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// PAD & DESKTOP (from 768px onwards)
+// DESKTOP (from 768px onwards)
 // @media (min-width: 768px) {
 //   body {
 //     background-color: green;
