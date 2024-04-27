@@ -213,7 +213,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  margin-top: 1em;
+  margin-top: 28px;
 }
 .restaurants__container__card {
   position: relative;
@@ -307,9 +307,20 @@ footer {
   background-color: #353535;
   margin-top: 6em;
 }
-footer h1 {
+footer a {
+  text-decoration: none;
+}
+footer a h1 {
   color: white;
   margin-bottom: 20px;
+  cursor: pointer;
+  transition: transform 150ms ease-out;
+}
+footer a h1:hover {
+  transform: translateX(2%);
+}
+footer a:hover {
+  transform: translateX(2%);
 }
 footer .footer__menu {
   display: flex;
@@ -321,6 +332,81 @@ footer .footer__menu a {
   display: flex;
   gap: 12px;
   text-decoration: none;
+  transition: all 150ms ease-out;
+}
+footer .footer__menu a:hover {
+  opacity: 0.5;
+}
+
+@media (min-width: 768px) {
+  .navbar__logo {
+    box-shadow: none;
+  }
+  .navbar__location {
+    box-shadow: none;
+  }
+  main {
+    margin: 0 auto;
+    max-width: 1120px;
+  }
+  .fonctionnement__container {
+    flex-direction: row;
+  }
+  .fonctionnement__container--steps {
+    flex: 1 1 0%;
+  }
+  .restaurants__container {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 50px;
+  }
+  .restaurants__container__card {
+    flex: 0 1 490px;
+  }
+  footer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 16px;
+    padding: 30px 25px;
+    height: 114px;
+  }
+  footer a {
+    order: 2;
+    transition: transform 150ms ease-out;
+  }
+  footer a h1 {
+    font-size: 18px;
+    margin: 0;
+    margin-right: 2em;
+  }
+  footer a:hover {
+    transform: scale(0.95);
+  }
+  footer .footer__menu {
+    order: 1;
+    flex-direction: row;
+    gap: 7px;
+  }
+  footer .footer__menu a {
+    align-items: center;
+  }
+  footer .footer__menu a img {
+    height: 13px;
+  }
+  footer .footer__menu a:nth-child(-n+2) {
+    width: 190px;
+  }
+  footer .footer__menu a:nth-child(n+3) {
+    width: 130px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1086px) {
+  .restaurants__container__card {
+    flex: 1 1 35%;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

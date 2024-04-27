@@ -254,7 +254,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 18px;
-    margin-top: 1em;
+    margin-top: 28px;
 
     &__card {
       position: relative;
@@ -276,7 +276,6 @@ main {
         padding: 13px;
 
         &--txt {
-          
           p {
             font-size: 17px;
             font-weight: $light;
@@ -359,9 +358,20 @@ footer {
   padding: 25px;
   background-color: $semi_black;
   margin-top: 6em;
-  h1 {
-    color: white;
-    margin-bottom: 20px;
+  a {
+    text-decoration: none;
+    h1 {
+      color: white;
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: transform 150ms ease-out;
+      &:hover {
+        transform: translateX(2%);
+      }
+    }
+    &:hover {
+      transform: translateX(2%);
+    }
   }
   .footer__menu {
     display: flex;
@@ -372,13 +382,108 @@ footer {
       display: flex;
       gap: 12px;
       text-decoration: none;
+      transition: all 150ms ease-out;
+      &:hover {
+        opacity: 0.5;
+      }
     }
   }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // DESKTOP (from 768px onwards)
-// @media (min-width: 768px) {
-//   body {
-//     background-color: green;
-//   }
-// }
+@media (min-width: 768px) {
+  // HEADER
+  // navbar
+  .navbar {
+    &__logo {
+      box-shadow: none;
+    }
+    &__location {
+      box-shadow: none;
+    }
+  }
+
+  // MAIN
+  main {
+    // display: flex;
+    // justify-content: center;
+    margin: 0 auto;
+    max-width: 1120px;
+  }
+  //section fonctionnement
+  .fonctionnement {
+    &__container {
+      flex-direction: row;
+      &--steps {
+        flex: 1 1 0%;
+      }
+    }
+  }
+
+  // section restaurant
+  .restaurants {
+    &__container {
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 50px;
+      &__card {
+        flex: 0 1 490px;
+      }
+    }
+  }
+
+  // FOOTER
+  footer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 16px;
+    padding: 30px 25px;
+    height: 114px;
+    a {
+      order: 2;
+      transition: transform 150ms ease-out;
+      h1 {
+        font-size: 18px;
+        margin: 0;
+        margin-right: 2em;
+      }
+      &:hover {
+        transform: scale(0.95);
+      }
+    }
+    .footer__menu {
+      order: 1;
+      flex-direction: row;
+      gap: 7px;
+      a {
+        align-items: center;
+        img {
+          height: 13px;
+        }
+        &:nth-child(-n + 2) {
+          width: 190px;
+        }
+        &:nth-child(n + 3) {
+          width: 130px;
+        }
+      }
+    }
+  }
+}
+
+// BETWEEN 768px & 1086px
+@media (min-width: 768px) and (max-width: 1086px) {
+  // MAIN
+  // section restaurant
+  .restaurants {
+    &__container {
+      &__card {
+        flex: 1 1 35%;
+      }
+    }
+  }
+}
