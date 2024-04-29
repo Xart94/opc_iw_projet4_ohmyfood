@@ -175,49 +175,49 @@ h5 {
 }
 // heart button animations keyframes
 @keyframes fillHeartIcon {
-          0% {
-            fill: transparent;
-            stroke: black;
-          }
-          25% {
-            stroke: rgba(0, 0, 0, 0.75);
-          }
-          50% {
-            stroke: rgba(0, 0, 0, 0.5);
-          }
-          75% {
-            stroke: rgba(0, 0, 0, 0.25);
-          }
-          85% {
-            stroke: rgba(0, 0, 0, 0.1);
-          }
-          100% {
-            fill: url(#my-gradient) $purple;
-            stroke: transparent;
-          }
-        }
-        @keyframes emptyHeartIcon {
-          0% {
-            fill: url(#my-gradient) $purple;
-            stroke: transparent;
-          }
-          25% {
-            stroke: rgba(0, 0, 0, 0.1);
-          }
-          50% {
-            stroke: rgba(0, 0, 0, 0.25);
-          }
-          75% {
-            stroke: rgba(0, 0, 0, 0.5);
-          }
-          85% {
-            stroke: rgba(0, 0, 0, 0.75);
-          }
-          100% {
-            fill: transparent;
-            stroke: black;
-          }
-        }
+  0% {
+    fill: transparent;
+    stroke: black;
+  }
+  25% {
+    stroke: rgba(0, 0, 0, 0.75);
+  }
+  50% {
+    stroke: rgba(0, 0, 0, 0.5);
+  }
+  75% {
+    stroke: rgba(0, 0, 0, 0.25);
+  }
+  85% {
+    stroke: rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    fill: url(#my-gradient) $purple;
+    stroke: transparent;
+  }
+}
+@keyframes emptyHeartIcon {
+  0% {
+    fill: url(#my-gradient) $purple;
+    stroke: transparent;
+  }
+  25% {
+    stroke: rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    stroke: rgba(0, 0, 0, 0.25);
+  }
+  75% {
+    stroke: rgba(0, 0, 0, 0.5);
+  }
+  85% {
+    stroke: rgba(0, 0, 0, 0.75);
+  }
+  100% {
+    fill: transparent;
+    stroke: black;
+  }
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // MOBILE (from 0px to 768px) //
@@ -229,9 +229,13 @@ h5 {
   &__returnBtn {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%) scale(1);
     left: 23px;
     text-align: center;
+    transition: transform 0.3s ease-in-out;
+    &:hover {
+      transform: translateY(-50%) scale(1.2);
+    }
   }
   &__logo {
     display: flex;
@@ -281,35 +285,85 @@ main {
       display: inline;
       position: relative;
       text-transform: uppercase;
-      // margin-bottom: 9px;
+      cursor: pointer;
+      align-self: flex-start;
+
+      &:hover {
+        &::after {
+          transform: scaleX(200%);
+          transform-origin: left;
+          border-bottom: 3px solid $green;
+          transition: transform 0.3s ease-in-out;
+        }
+      }
       &::after {
         content: "";
         position: absolute;
-        background-color: $light_green;
+        border-bottom: 3px solid $light_green;
         bottom: -9px;
         left: 0;
         width: 40px;
-        height: 3px;
-        // padding-top: 9px;
+        height: 12px;
+        transform: scaleX(100%);
+        transform-origin: left;
+        transition: transform 0.3s ease-in-out;
       }
     }
     .menu {
-      margin-top: 12px;
-      padding: 15px;
+      display: flex;
+      justify-content: space-between;
       border-radius: 16px;
+      margin-top: 12px;
       box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-      &__description {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 5px;
-        &--txt {
-          font-size: 15px;
-          font-weight: 300;
+      cursor: pointer;
+      &__container {
+        h4 {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
         }
-        &--price {
-          font-size: 15px;
-          font-weight: 700;
-          color: $semi_black;
+        width: 80%;
+        padding: 15px;
+        flex: 1 1 0%;
+        .menu__description {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 5px;
+          &--txt {
+            // width: 75%;
+            font-size: 15px;
+            font-weight: 300;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+          }
+          &--price {
+            font-size: 15px;
+            font-weight: 700;
+            color: $semi_black;
+            margin-left: 10px;
+          }
+        }
+      }
+      &__checkmark {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 0px;
+        background-color: $light_green;
+        border-top-right-radius: 16px;
+        border-bottom-right-radius: 16px;
+        transition: all 0.3s ease-in-out;
+        img {
+          display: none;
+        }
+      }
+      &:hover > .menu__checkmark {
+        border-top-right-radius: 16px;
+        border-bottom-right-radius: 16px;
+        width: 60px;
+        img {
+          display: block;
         }
       }
     }

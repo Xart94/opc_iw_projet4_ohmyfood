@@ -195,9 +195,13 @@ h5 {
 .navbar__returnBtn {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) scale(1);
   left: 23px;
   text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+.navbar__returnBtn:hover {
+  transform: translateY(-50%) scale(1.2);
 }
 .navbar__logo {
   display: flex;
@@ -242,35 +246,83 @@ main {
   display: inline;
   position: relative;
   text-transform: uppercase;
+  cursor: pointer;
+  align-self: flex-start;
+}
+.carte__container--menus h5:hover::after {
+  transform: scaleX(200%);
+  transform-origin: left;
+  border-bottom: 3px solid #008766;
+  transition: transform 0.3s ease-in-out;
 }
 .carte__container--menus h5::after {
   content: "";
   position: absolute;
-  background-color: #99e2d0;
+  border-bottom: 3px solid #99e2d0;
   bottom: -9px;
   left: 0;
   width: 40px;
-  height: 3px;
+  height: 12px;
+  transform: scaleX(100%);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
 }
 .carte__container--menus .menu {
-  margin-top: 12px;
-  padding: 15px;
+  display: flex;
+  justify-content: space-between;
   border-radius: 16px;
+  margin-top: 12px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
-.carte__container--menus .menu__description {
+.carte__container--menus .menu__container {
+  width: 80%;
+  padding: 15px;
+  flex: 1 1 0%;
+}
+.carte__container--menus .menu__container h4 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.carte__container--menus .menu__container .menu__description {
   display: flex;
   justify-content: space-between;
   margin-top: 5px;
 }
-.carte__container--menus .menu__description--txt {
+.carte__container--menus .menu__container .menu__description--txt {
   font-size: 15px;
   font-weight: 300;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
-.carte__container--menus .menu__description--price {
+.carte__container--menus .menu__container .menu__description--price {
   font-size: 15px;
   font-weight: 700;
   color: #353535;
+  margin-left: 10px;
+}
+.carte__container--menus .menu__checkmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0px;
+  background-color: #99e2d0;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  transition: all 0.3s ease-in-out;
+}
+.carte__container--menus .menu__checkmark img {
+  display: none;
+}
+.carte__container--menus .menu:hover > .menu__checkmark {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  width: 60px;
+}
+.carte__container--menus .menu:hover > .menu__checkmark img {
+  display: block;
 }
 .carte__container--btn {
   width: 186px;
