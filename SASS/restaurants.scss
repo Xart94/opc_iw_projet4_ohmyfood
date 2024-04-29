@@ -1,0 +1,359 @@
+// IMPORTS
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+
+// VARIABLES
+// colors:
+$semi_black: #353535;
+$light_green: #99e2d0;
+$green: #008766;
+$light_blue: #89c8fa;
+$blue: #003a68;
+$purple: #9356dc;
+@mixin gradient {
+  background: linear-gradient(
+    0deg,
+    rgba(147, 86, 220, 1) 0%,
+    rgba(255, 121, 218, 1) 100%
+  );
+}
+
+//font weight
+$light: 300;
+$medium: 500;
+
+// shadows:
+@mixin boxShadow {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+@mixin boxShadowHoverState {
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35);
+}
+
+// GENERAL
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: center;
+  .main-container {
+    width: 100%;
+    max-width: 1440px;
+  }
+}
+
+h1 {
+  font-size: 28px;
+  font-family: "Shrikhand", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+h4 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+h5 {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+// BUTTONS
+.btn--main {
+  @include gradient;
+  @include boxShadow;
+  position: relative;
+  border: none;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 25px;
+  padding: 13px 16px;
+  cursor: pointer;
+  transition: box-shadow 0.3s 100ms ease-out;
+  z-index: 1;
+  &:hover {
+    @include boxShadowHoverState;
+    &::after {
+      opacity: 0.15;
+    }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 25px;
+    background-color: white;
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+    z-index: -1;
+  }
+}
+
+.btn--secondary {
+  position: absolute;
+  width: 80px;
+  right: 5%;
+  top: 5%;
+  border: none;
+  color: $green;
+  font-size: 14px;
+  padding: 7px 9px;
+  border-radius: 2px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  z-index: 0;
+  transition: transform 0.4s ease-in-out;
+  &::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: $light_green;
+    left: 0;
+    top: 0;
+    border-radius: 2px;
+  }
+  &::before {
+    content: "";
+    background-color: #31b493;
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    filter: blur(8px);
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 2px;
+    opacity: 0;
+  }
+  &:hover {
+    transform: scale(1.1);
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+.heart-btn {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  height: 21px;
+  align-self: center;
+  svg {
+    cursor: pointer;
+    path {
+      fill: transparent;
+      stroke: rgb(0, 0, 0);
+      animation: emptyHeartIcon 0.3s ease-in-out forwards;
+    }
+  }
+  &:hover svg path {
+    fill: url(#my-gradient) $purple;
+    stroke: transparent;
+    animation: fillHeartIcon 0.3s ease-in-out forwards;
+  }
+}
+// heart button animations keyframes
+@keyframes fillHeartIcon {
+          0% {
+            fill: transparent;
+            stroke: black;
+          }
+          25% {
+            stroke: rgba(0, 0, 0, 0.75);
+          }
+          50% {
+            stroke: rgba(0, 0, 0, 0.5);
+          }
+          75% {
+            stroke: rgba(0, 0, 0, 0.25);
+          }
+          85% {
+            stroke: rgba(0, 0, 0, 0.1);
+          }
+          100% {
+            fill: url(#my-gradient) $purple;
+            stroke: transparent;
+          }
+        }
+        @keyframes emptyHeartIcon {
+          0% {
+            fill: url(#my-gradient) $purple;
+            stroke: transparent;
+          }
+          25% {
+            stroke: rgba(0, 0, 0, 0.1);
+          }
+          50% {
+            stroke: rgba(0, 0, 0, 0.25);
+          }
+          75% {
+            stroke: rgba(0, 0, 0, 0.5);
+          }
+          85% {
+            stroke: rgba(0, 0, 0, 0.75);
+          }
+          100% {
+            fill: transparent;
+            stroke: black;
+          }
+        }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// MOBILE (from 0px to 768px) //
+
+/// HEADER ///
+
+.navbar {
+  position: relative;
+  &__returnBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 23px;
+    text-align: center;
+  }
+  &__logo {
+    display: flex;
+    justify-content: center;
+    padding: 16px 0px;
+    img {
+      width: 162px;
+    }
+  }
+}
+.banner {
+  img {
+    width: 100%;
+    height: 275px;
+    object-fit: cover;
+  }
+}
+// end HEADER
+
+/// MAIN ///
+main {
+  max-width: 1055px;
+}
+
+// carte section
+.carte__container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background-color: #f6f6f6;
+  padding: 13px 13px 0px 13px;
+  transform: translateY(-32px);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+
+  &--title {
+    display: flex;
+    gap: 2em;
+    transform: translateY(12px);
+  }
+
+  &--menus {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    h5 {
+      display: inline;
+      position: relative;
+      text-transform: uppercase;
+      // margin-bottom: 9px;
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: $light_green;
+        bottom: -9px;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        // padding-top: 9px;
+      }
+    }
+    .menu {
+      margin-top: 12px;
+      padding: 15px;
+      border-radius: 16px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+      &__description {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5px;
+        &--txt {
+          font-size: 15px;
+          font-weight: 300;
+        }
+        &--price {
+          font-size: 15px;
+          font-weight: 700;
+          color: $semi_black;
+        }
+      }
+    }
+  }
+  &--btn {
+    width: 186px;
+    height: 50px;
+    align-self: center;
+    margin-bottom: 40px;
+  }
+}
+
+/// FOOTER ///
+footer {
+  padding: 25px;
+  background-color: $semi_black;
+  a {
+    text-decoration: none;
+    h1 {
+      color: white;
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: transform 150ms ease-out;
+      &:hover {
+        transform: translateX(2%);
+      }
+    }
+    &:hover {
+      transform: translateX(2%);
+    }
+  }
+  .footer__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    a {
+      color: white;
+      display: flex;
+      gap: 12px;
+      text-decoration: none;
+      transition: all 150ms ease-out;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}
