@@ -18,6 +18,13 @@ $purple: #9356dc;
   );
 }
 
+// on page-landing animations
+$num-menusType: 3;
+$num-menus: 9;
+$anim-dur: 800ms;
+$anim-delay-menusType: calc($anim-dur / $num-menusType);
+$anim-delay-menus: calc($anim-dur / $num-menus);
+
 //font weight
 $light: 300;
 $medium: 500;
@@ -372,12 +379,28 @@ main {
         }
       }
     }
+
+    animation: fadeIn $anim-dur backwards;
+    @for $i from 1 through 3 {
+      &--#{$i} {
+        animation-delay: $anim-delay-menusType * $i;
+      }
+    }
   }
   &--btn {
     width: 186px;
     height: 50px;
     align-self: center;
     margin-bottom: 40px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 

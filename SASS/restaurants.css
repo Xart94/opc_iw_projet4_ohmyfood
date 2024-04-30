@@ -246,6 +246,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  animation: fadeIn 800ms backwards;
 }
 .carte__container--menus h5 {
   display: inline;
@@ -329,6 +330,15 @@ main {
 .carte__container--menus .menu:hover > .menu__checkmark img {
   display: block;
 }
+.carte__container--menus--1 {
+  animation-delay: 266.6666666667ms;
+}
+.carte__container--menus--2 {
+  animation-delay: 533.3333333333ms;
+}
+.carte__container--menus--3 {
+  animation-delay: 800ms;
+}
 .carte__container--btn {
   width: 186px;
   height: 50px;
@@ -336,6 +346,14 @@ main {
   margin-bottom: 40px;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 footer {
   padding: 25px;
   background-color: #353535;
