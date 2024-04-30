@@ -37,6 +37,10 @@ $medium: 500;
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   display: flex;
@@ -148,7 +152,68 @@ h4 {
     }
   }
 }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// LOADER //
+.loader {
+  position: fixed;
+  background-image: url("../assets/images/logo/ohmyfood@2x.svg");
+  background-repeat: no-repeat;
+  background-position: 50% 25%;
+  background-size: 45%;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f6f6;
+  z-index: 999;
+  animation: loadingScreen 3s ease-out forwards;
+  &::after {
+    content: "";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Shrikhand", serif;
+    font-size: 15px;
+    width: 120px;
+    height: 120px;
+    border: 15px solid #eaeaea;
+    border-top-color: #9356dc;
+
+    border-radius: 50%;
+    animation: rotation 1s ease infinite;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0turn);
+  }
+  50% {
+    border-top-color: rgba(255, 121, 218, 1);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes loadingScreen {
+  0% {
+    visibility: visible;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 // MOBILE (from 0px to 768px) //
 
 /// HEADER ///
