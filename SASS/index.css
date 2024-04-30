@@ -220,9 +220,9 @@ main {
   width: 100%;
   height: 251px;
   margin-bottom: 0.2em;
-  cursor: pointer;
 }
 .restaurants__container__card .card__img img {
+  transition: transform 0.3s ease-in-out;
   object-fit: cover;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -233,6 +233,13 @@ main {
   display: flex;
   justify-content: space-between;
   padding: 13px;
+}
+.restaurants__container__card .card__article--txt h3 {
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.restaurants__container__card .card__article--txt h3:hover {
+  transform: scale(1.1);
 }
 .restaurants__container__card .card__article--txt p {
   font-size: 17px;
