@@ -258,6 +258,7 @@ h5 {
 /// MAIN ///
 main {
   max-width: 1055px;
+  margin: 0 auto;
 }
 
 // carte section
@@ -407,6 +408,51 @@ footer {
       transition: all 150ms ease-out;
       &:hover {
         opacity: 0.5;
+      }
+    }
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// DESKTOP (from 1024px onwards)
+@media (min-width: 1024px) {
+  // FOOTER
+  footer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 16px;
+    padding: 30px 25px;
+    height: 114px;
+    a {
+      order: 2;
+      transition: transform 150ms ease-out;
+      h1 {
+        font-size: 18px;
+        margin: 0;
+        margin-right: 2em;
+      }
+      &:hover {
+        transform: scale(0.95);
+      }
+    }
+    .footer__menu {
+      order: 1;
+      flex-direction: row;
+      gap: 7px;
+      a {
+        align-items: center;
+        img {
+          height: 13px;
+        }
+        &:nth-child(-n + 2) {
+          width: 190px;
+        }
+        &:nth-child(n + 3) {
+          width: 130px;
+        }
       }
     }
   }

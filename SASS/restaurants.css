@@ -220,6 +220,7 @@ h5 {
 
 main {
   max-width: 1055px;
+  margin: 0 auto;
 }
 
 .carte__container {
@@ -364,6 +365,47 @@ footer .footer__menu a {
 }
 footer .footer__menu a:hover {
   opacity: 0.5;
+}
+
+@media (min-width: 1024px) {
+  footer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 16px;
+    padding: 30px 25px;
+    height: 114px;
+  }
+  footer a {
+    order: 2;
+    transition: transform 150ms ease-out;
+  }
+  footer a h1 {
+    font-size: 18px;
+    margin: 0;
+    margin-right: 2em;
+  }
+  footer a:hover {
+    transform: scale(0.95);
+  }
+  footer .footer__menu {
+    order: 1;
+    flex-direction: row;
+    gap: 7px;
+  }
+  footer .footer__menu a {
+    align-items: center;
+  }
+  footer .footer__menu a img {
+    height: 13px;
+  }
+  footer .footer__menu a:nth-child(-n+2) {
+    width: 190px;
+  }
+  footer .footer__menu a:nth-child(n+3) {
+    width: 130px;
+  }
 }
 
 /*# sourceMappingURL=restaurants.css.map */
