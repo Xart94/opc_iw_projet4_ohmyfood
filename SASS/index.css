@@ -311,6 +311,7 @@ main {
   align-self: flex-start;
   border: none;
   background-color: rgba(255, 255, 255, 0);
+  content: "\f004";
 }
 .restaurants__container__card .card__article .heart-btn svg {
   cursor: pointer;
