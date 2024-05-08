@@ -55,6 +55,8 @@ body {
   .main-container {
     width: 100%;
     max-width: 1440px;
+    // display: flex;
+    // flex-direction: column;
   }
 }
 
@@ -166,22 +168,39 @@ h5 {
 }
 
 .heart-btn {
+  margin-right: 10px;
+  width: 1.875rem;
+  height: 1.875rem;
   border: none;
-  background-color: rgba(255, 255, 255, 0);
-  height: 21px;
-  align-self: center;
-  svg {
-    cursor: pointer;
-    path {
-      fill: transparent;
-      stroke: rgb(0, 0, 0);
-      animation: emptyHeartIcon 0.3s ease-in-out forwards;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+
+  &::before {
+    content: "\f004";
+    font-family: "Font Awesome 5 Free";
+    position: absolute;
+    transition: all 0.8s ease-in-out;
+    font-size: x-large;
   }
-  &:hover svg path {
-    fill: url(#my-gradient) $purple;
-    stroke: transparent;
-    animation: fillHeartIcon 0.3s ease-in-out forwards;
+  &::after {
+    content: "\f004";
+    font-family: "Font Awesome 5 Free";
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    background: linear-gradient(to bottom, #ff79da, #9356dc 80%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    opacity: 0;
+    font-weight: 600;
+    font-size: x-large;
+    cursor: pointer;
+  }
+  &:hover::after {
+    opacity: 1;
   }
 }
 // heart button animations keyframes
@@ -270,6 +289,9 @@ h5 {
 main {
   max-width: 1055px;
   margin: 0 auto;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  background-color: #f6f6f6;
 }
 
 // carte section
@@ -277,14 +299,16 @@ main {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  background-color: #f6f6f6;
   padding: 13px 13px 0px 13px;
   transform: translateY(-32px);
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
+  background-color: #f6f6f6;
 
   &--title {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     gap: 2em;
     transform: translateY(12px);
   }
@@ -391,7 +415,7 @@ main {
     width: 186px;
     height: 50px;
     align-self: center;
-    // margin-bottom: 40px;
+    margin-bottom: 10px;
   }
 }
 
@@ -444,9 +468,14 @@ footer {
 
 // DESKTOP (from 1024px onwards)
 @media (min-width: 1024px) {
+  .carte__container {
+    padding: 13px 210px 0px 210px;
+    &--title {
+      justify-content: center;
+    }
+  }
   // FOOTER
   footer {
-    margin-top: 30px;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;

@@ -175,6 +175,7 @@ h4 {
     content: "";
     display: flex;
     justify-content: center;
+    position: relative;
     align-items: center;
     text-align: center;
     font-family: "Shrikhand", serif;
@@ -186,6 +187,12 @@ h4 {
 
     border-radius: 50%;
     animation: rotation 1s ease infinite;
+  }
+  &::before {
+    content: "Chargement...";
+    position: absolute;
+    font-size: 14px;
+    font-family: "Shrikhand", serif;
   }
 }
 
@@ -224,6 +231,7 @@ h4 {
     justify-content: center;
     padding: 16px 0px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+    z-index: 5;
     img {
       width: 162px;
     }
@@ -237,6 +245,8 @@ h4 {
     padding: 17px 0px;
     background-color: #eaeaea;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: relative;
+    // z-index: 5;
     p {
       font-weight: $medium;
       font-size: 16px;
@@ -250,8 +260,9 @@ h4 {
   align-items: center;
   gap: 15px;
   text-align: center;
-  padding: 0px 34px;
-  margin: 38px 0px;
+  padding: 38px 34px;
+  // margin: 38px 0px;
+  background-color: #f6f6f6;
   p {
     font-size: 18px;
     font-weight: $light;
@@ -264,14 +275,15 @@ h4 {
 
 /// MAIN ///
 main {
-  padding: 0px 20px;
+  padding: 0px 0px;
 }
 
 // section fonctionnement
 .fonctionnement {
   display: flex;
   flex-direction: column;
-  margin-top: 6em;
+  margin-top: 4em;
+  padding: 0 20px;
 
   &__container {
     display: flex;
@@ -313,7 +325,9 @@ main {
 
 // section restaurants
 .restaurants {
-  margin-top: 6em;
+  margin-top: 4em;
+  background-color: #f6f6f6;
+  padding: 35px 20px 65px 20px;
 
   &__container {
     display: flex;
@@ -326,7 +340,8 @@ main {
       width: 100%;
       height: 251px;
       margin-bottom: 0.2em;
-      // cursor: pointer;
+      background-color: white;
+      border-radius: 15px;
       .card__img {
         img {
           transition: transform 0.3s ease-in-out;
@@ -359,67 +374,38 @@ main {
 
         .heart-btn {
           margin-right: 10px;
-          align-self: flex-start;
+          width: 1.875rem;
+          height: 1.875rem;
           border: none;
-          background-color: rgba(255, 255, 255, 0);
-          svg {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: transparent;
+
+          &::before {
+            content: "\f004";
+            font-family: "Font Awesome 5 Free";
+            position: absolute;
+            transition: all 0.8s ease-in-out;
+            font-size: x-large;
+          }
+          &::after {
+            content: "\f004";
+            font-family: "Font Awesome 5 Free";
+            position: absolute;
+            transition: all 0.3s ease-in-out;
+            background: linear-gradient(to bottom, #ff79da, #9356dc 80%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            opacity: 0;
+            font-weight: 600;
+            font-size: x-large;
             cursor: pointer;
-            path {
-              fill: transparent;
-              stroke: rgb(0, 0, 0);
-              animation: emptyHeartIcon 0.3s ease-in-out forwards;
-            }
           }
-          content: "\f004";
-          &:hover svg path {
-            fill: url(#my-gradient) $purple;
-            stroke: transparent;
-            animation: fillHeartIcon 0.3s ease-in-out forwards;
-          }
-        }
-        // heart button animation keyframes
-        @keyframes fillHeartIcon {
-          0% {
-            fill: transparent;
-            stroke: black;
-          }
-          25% {
-            stroke: rgba(0, 0, 0, 0.75);
-          }
-          50% {
-            stroke: rgba(0, 0, 0, 0.5);
-          }
-          75% {
-            stroke: rgba(0, 0, 0, 0.25);
-          }
-          85% {
-            stroke: rgba(0, 0, 0, 0.1);
-          }
-          100% {
-            fill: url(#my-gradient) $purple;
-            stroke: transparent;
-          }
-        }
-        @keyframes emptyHeartIcon {
-          0% {
-            fill: url(#my-gradient) $purple;
-            stroke: transparent;
-          }
-          25% {
-            stroke: rgba(0, 0, 0, 0.1);
-          }
-          50% {
-            stroke: rgba(0, 0, 0, 0.25);
-          }
-          75% {
-            stroke: rgba(0, 0, 0, 0.5);
-          }
-          85% {
-            stroke: rgba(0, 0, 0, 0.75);
-          }
-          100% {
-            fill: transparent;
-            stroke: black;
+          &:hover::after {
+            opacity: 1;
           }
         }
       }
@@ -432,7 +418,6 @@ main {
 footer {
   padding: 25px;
   background-color: $semi_black;
-  margin-top: 6em;
   a {
     text-decoration: none;
     h1 {
@@ -483,11 +468,14 @@ footer {
   main {
     // display: flex;
     // justify-content: center;
+    padding: 0px;
     margin: 0 auto;
-    max-width: 1120px;
+    // max-width: 1120px;
   }
   //section fonctionnement
   .fonctionnement {
+    max-width: 1080px;
+    margin: 4em auto;
     &__container {
       flex-direction: row;
       &--steps {
@@ -498,20 +486,31 @@ footer {
 
   // section restaurant
   .restaurants {
+    margin-top: 2em;
+    padding: 25px 25px;
+    h2 {
+      max-width: 1080px;
+      margin: 0 auto;
+      margin-bottom: 25px;
+    }
     &__container {
+      max-width: 1080px;
+      margin: 0 auto;
       flex-direction: row;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 50px;
       &__card {
         flex: 0 1 490px;
+        background-color: white;
+        border-radius: 15px;
       }
     }
   }
 
   // FOOTER
   footer {
-    margin-top: 30px;
+    margin-top: 0px;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
