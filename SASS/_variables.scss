@@ -1,0 +1,18 @@
+// colors:
+$semi_black: #353535;
+$light_green: #99e2d0;
+$green: #008766;
+$light_blue: #89c8fa;
+$blue: #003a68;
+$purple: #9356dc;
+
+//font weight
+$light: 300;
+$medium: 500;
+
+// on restaurants page-landing animations
+$num-menusType: 3;
+$num-menus: 9;
+$anim-dur: 800ms;
+$anim-delay-menusType: calc($anim-dur / $num-menusType);
+$anim-delay-menus: calc($anim-dur / $num-menus);
