@@ -210,6 +210,69 @@ h5 {
     stroke: black;
   }
 }
+.loader {
+  position: fixed;
+  background-image: url("../assets/images/logo/ohmyfood@2x.svg");
+  background-repeat: no-repeat;
+  background-position: 50% 25%;
+  background-size: 45%;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f6f6;
+  z-index: 999;
+  animation: loadingScreen 3s ease-out forwards;
+}
+.loader::after {
+  content: "";
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  text-align: center;
+  font-family: "Shrikhand", serif;
+  font-size: 15px;
+  width: 120px;
+  height: 120px;
+  border: 15px solid #eaeaea;
+  border-top-color: #9356dc;
+  border-radius: 50%;
+  animation: rotation 1s ease infinite;
+}
+.loader::before {
+  content: "Chargement...";
+  position: absolute;
+  font-size: 14px;
+  font-family: "Shrikhand", serif;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0turn);
+  }
+  50% {
+    border-top-color: rgb(255, 121, 218);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
+}
+@keyframes loadingScreen {
+  0% {
+    visibility: visible;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 footer {
   padding: 25px;
   background-color: #353535;
@@ -282,69 +345,6 @@ footer .footer__menu a:hover {
   }
   footer .footer__menu a:nth-child(n+3) {
     width: 130px;
-  }
-}
-.loader {
-  position: fixed;
-  background-image: url("../assets/images/logo/ohmyfood@2x.svg");
-  background-repeat: no-repeat;
-  background-position: 50% 25%;
-  background-size: 45%;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f6f6f6;
-  z-index: 999;
-  animation: loadingScreen 3s ease-out forwards;
-}
-.loader::after {
-  content: "";
-  display: flex;
-  justify-content: center;
-  position: relative;
-  align-items: center;
-  text-align: center;
-  font-family: "Shrikhand", serif;
-  font-size: 15px;
-  width: 120px;
-  height: 120px;
-  border: 15px solid #eaeaea;
-  border-top-color: #9356dc;
-  border-radius: 50%;
-  animation: rotation 1s ease infinite;
-}
-.loader::before {
-  content: "Chargement...";
-  position: absolute;
-  font-size: 14px;
-  font-family: "Shrikhand", serif;
-}
-
-@keyframes rotation {
-  0% {
-    transform: rotate(0turn);
-  }
-  50% {
-    border-top-color: rgb(255, 121, 218);
-  }
-  100% {
-    transform: rotate(1turn);
-  }
-}
-@keyframes loadingScreen {
-  0% {
-    visibility: visible;
-  }
-  85% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    visibility: hidden;
   }
 }
 .navbar__logo {
